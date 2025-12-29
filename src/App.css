@@ -1,0 +1,150 @@
+
+:root {
+  --accent-color: #38bdf8; /* sky-400 */
+  --accent-dark-color: #27479ed1; 
+  --accent-color-rgb: 56, 189, 248;
+}
+
+/* Accent utility classes to pair with existing markup */
+.text-accent { color: var(--accent-color) !important; }
+.border-accent { border-color: var(--accent-color) !important; }
+.bg-accent { background-color: var(--accent-color) !important; }
+.ring-accent { box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.6) inset, 0 0 24px rgba(var(--accent-color-rgb), 0.35); }
+
+.nav-hover{
+  transition: all 0.3 cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.nav-hover:hover{
+  color: var(--accent-dark-color);
+}
+/* High-contrast icon helper for dark bg */
+.icon-contrast {
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}
+
+.hero-btn{
+  background-color: var(--accent-dark-color);
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.hero-btn:hover{
+  transform: scale(0.95);
+}
+
+.bg-certificate{
+  background-color: var(--accent-dark-color);
+  padding-block: 2px;
+}
+
+/* Primary button using accent */
+.btn-primary {
+  background-color: var(--accent-color);
+  color: #0b1220;
+  border: 1px solid rgba(var(--accent-color-rgb), 0.85);
+  box-shadow: 0 8px 24px rgba(var(--accent-color-rgb), 0.25);
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(var(--accent-color-rgb), 0.33);
+  background-color: rgba(var(--accent-color-rgb), 1);
+}
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(var(--accent-color-rgb), 0.22);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px) scale(0.99);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.cursor{
+  cursor: pointer;
+  animation: vibrate 2s linear infinite;
+}
+
+@keyframes vibrate{
+  0%{
+    transform: scale(0.9);
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(0.9);
+  }
+}
+
+/* Liquid glass utility classes */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+}
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+}
+
+/* Animated gradient hover for cards */
+.card-hover {
+  position: relative;
+  overflow: hidden;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.card-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent-dark-color);
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 300ms ease, transform 300ms ease;
+  background-size: 200% 200%;
+  animation: gradient-pan 6s linear infinite;
+  animation-play-state: paused;
+  z-index: 1;
+}
+.card-hover:hover::before {
+  opacity: 0.85;
+  transform: scale(1);
+  animation-play-state: running;
+}
+.card-hover > * {
+  position: relative;
+  z-index: 2;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes gradient-pan {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@media (max-width: 400px){
+  .query-img{
+    display: none;
+  }
+}
+
+.form-message-color{
+  color: var(--accent-color);
+  font-weight: bold;
+}

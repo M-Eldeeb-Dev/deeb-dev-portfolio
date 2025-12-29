@@ -1,0 +1,76 @@
+{
+    "project_name": "Technology Portfolio Website",
+    "style_guide": {
+      "color_palette": {
+        "primary": "#000000",
+        "secondary": "#ffffff",
+        "accent": "#9F00FF",
+        "grayscale": "#333333",
+        "background_gradient": "linear-gradient(109.6deg, rgb(36, 45, 57) 11.2%, rgb(16, 37, 60) 51.2%, rgb(0, 0, 0) 98.6%);"
+      },
+      "typography": {
+        "primary_font": "Roboto, sans-serif",
+        "secondary_font": "Montserrat, sans-serif",
+        "heading_weight": "bold",
+        "body_weight": "regular",
+        "text_transform": "uppercase"
+      },
+      "layout_and_composition": {
+        "overall_feel": "Futuristic, clean, and modern with a focus on technology",
+        "grid_system": "Flexible grid for responsive design",
+        "asymmetry": "Use of asymmetrical elements to create visual interest (e.g., floating shapes, diagonal lines)",
+        "whitespace": "Ample whitespace to improve readability and create a premium feel"
+      },
+      "imagery_and_visuals": {
+        "main_image": {
+          "description": "High-quality, black and white image of a person wearing a VR headset, with a glowing purple geometric shape above their head.",
+          "style": "Technological, futuristic, and slightly abstract",
+          "placement": "Prominently featured on the homepage, possibly on the left side, enclosed within a circle or other unique shape"
+        },
+        "geometric_shapes": {
+          "description": "Abstract, glowing purple shapes and lines used as decorative elements to add a futuristic touch.",
+          "style": "Minimalistic and sharp"
+        },
+        "grid_pattern": {
+          "description": "Subtle, wireframe-like grid pattern in the background or on the bottom of sections to reinforce the tech theme."
+        }
+      },
+      "interactive_elements": {
+        "buttons": {
+          "style": "Minimalist with a thin border and bold text",
+          "hover_effect": "Subtle glow or color change"
+        },
+        "navigation": {
+          "style": "Simple, uppercase text links in the header",
+          "links_color": "#ffffff",
+          "active_link_style": "Underline or a different color"
+        },
+        "social_icons": {
+          "style": "Monochrome icons with a simple, modern design",
+          "placement": "Header and footer"
+        }
+      }
+    },
+    "website_sections": [
+      {
+        "name": "Home",
+        "content": "A hero section with a bold headline, a concise description of the programmer's expertise, and a call-to-action button (e.g., 'View Portfolio' or 'Contact Me')."
+      },
+      {
+        "name": "About",
+        "content": "A section with a short bio, skills (listed with icons or progress bars), and a more detailed explanation of the programmer's background and philosophy."
+      },
+      {
+        "name": "Portfolio",
+        "content": "A gallery of projects with high-quality screenshots and concise descriptions. Each project should link to a detailed case study page."
+      },
+      {
+        "name": "Services",
+        "content": "A list of services offered (e.g., 'Web Development,' 'Mobile Apps,' 'UI/UX Design') with brief descriptions and pricing (if applicable)."
+      },
+      {
+        "name": "Contact",
+        "content": "A contact form with fields for name, email, subject, and message. Include social media links and an email address for direct contact."
+      }
+    ]
+  }
