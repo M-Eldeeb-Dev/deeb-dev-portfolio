@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Section from "../common/Section";
 import Reveal from "../common/Reveal";
 import GlassCard from "../common/GlassCard";

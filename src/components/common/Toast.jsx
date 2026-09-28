@@ -10,6 +10,7 @@ import { LuCircleCheck, LuCircleAlert, LuX, LuInfo } from "react-icons/lu";
 
 const ToastContext = createContext(null);
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useToast() {
   const context = useContext(ToastContext);
   if (!context) {
@@ -22,7 +23,6 @@ function ToastItem({ toast, onDismiss }) {
   const timerRef = useRef(null);
   const remainingRef = useRef(toast.duration || 4000);
   const startTimeRef = useRef(Date.now());
-  const [isPaused, setIsPaused] = useState(false);
 
   const startTimer = useCallback(() => {
     startTimeRef.current = Date.now();
@@ -37,12 +37,10 @@ function ToastItem({ toast, onDismiss }) {
       timerRef.current = null;
       const elapsed = Date.now() - startTimeRef.current;
       remainingRef.current = Math.max(0, remainingRef.current - elapsed);
-      setIsPaused(true);
     }
   }, []);
 
   const resumeTimer = useCallback(() => {
-    setIsPaused(false);
     startTimer();
   }, [startTimer]);
 

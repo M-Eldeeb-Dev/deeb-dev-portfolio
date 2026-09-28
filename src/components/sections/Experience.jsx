@@ -2,7 +2,6 @@ import Section from "../common/Section";
 import Reveal from "../common/Reveal";
 import GlassCard from "../common/GlassCard";
 import Button from "../common/Button";
-import Pill from "../common/Pill";
 import { certificates } from "../../data/certificates";
 import { LuAward, LuExternalLink, LuCalendar } from "react-icons/lu";
 

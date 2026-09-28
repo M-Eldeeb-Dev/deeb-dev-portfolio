@@ -7,7 +7,6 @@ import Button from "../common/Button";
 import { projects, projectCategories } from "../../data/projects";
 import {
   LuExternalLink,
-  LuFolderGit2,
   LuLayers,
   LuInfo,
   LuX,

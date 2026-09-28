@@ -6,7 +6,6 @@ import {
   LuSearch,
   LuFileText,
   LuCopy,
-  LuExternalLink,
   LuCompass,
   LuX,
   LuCornerDownLeft,
