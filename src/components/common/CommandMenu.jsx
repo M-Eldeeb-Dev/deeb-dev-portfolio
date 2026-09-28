@@ -10,8 +10,9 @@ import {
   LuCompass,
   LuX,
   LuCornerDownLeft,
+  LuLinkedin,
 } from "react-icons/lu";
-import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 
 export default function CommandMenu({ isOpen, onClose, onOpenResume }) {
   const dialogRef = useRef(null);
@@ -75,7 +76,7 @@ export default function CommandMenu({ isOpen, onClose, onOpenResume }) {
         id: "social-linkedin",
         category: "Socials",
         label: "Open LinkedIn Profile",
-        icon: SiLinkedin,
+        icon: LuLinkedin,
         action: () => {
           window.open(
             "https://www.linkedin.com/in/mohamed-eldeeb-78b83730b",

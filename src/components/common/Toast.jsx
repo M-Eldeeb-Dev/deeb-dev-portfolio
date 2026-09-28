@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { LuCheckCircle2, LuAlertCircle, LuX, LuInfo } from "react-icons/lu";
+import { LuCircleCheck, LuCircleAlert, LuX, LuInfo } from "react-icons/lu";
 
 const ToastContext = createContext(null);
 
@@ -71,10 +71,10 @@ function ToastItem({ toast, onDismiss }) {
     >
       <div className="shrink-0 text-lg">
         {toast.type === "success" && (
-          <LuCheckCircle2 className="text-emerald-400" />
+          <LuCircleCheck className="text-emerald-400" />
         )}
         {toast.type === "error" && (
-          <LuAlertCircle className="text-rose-400" />
+          <LuCircleAlert className="text-rose-400" />
         )}
         {toast.type === "info" && (
           <LuInfo className="text-cyan-400" />

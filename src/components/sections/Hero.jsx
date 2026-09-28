@@ -16,7 +16,7 @@ import {
   LuFileText,
   LuCopy,
   LuCheck,
-  LuCode2,
+  LuCode,
   LuAward,
   LuSparkles,
 } from "react-icons/lu";
@@ -200,7 +200,7 @@ export default function Hero({ onOpenResume }) {
         {/* Stat Tile 1: Project Count */}
         <GlassCard className="md:col-span-4 p-5 flex items-center gap-4">
           <div className="p-3 rounded-xl bg-violet-950/60 border border-violet-700/40 text-violet-400 shrink-0">
-            <LuCode2 className="w-6 h-6" />
+            <LuCode className="w-6 h-6" />
           </div>
           <div>
             <div className="font-display text-2xl font-bold text-white">

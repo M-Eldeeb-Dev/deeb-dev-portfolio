@@ -11,7 +11,7 @@ import {
   LuLayers,
   LuInfo,
   LuX,
-  LuCheckCircle2,
+  LuCircleCheck,
 } from "react-icons/lu";
 import { SiGithub } from "react-icons/si";
 
@@ -244,7 +244,7 @@ export default function Projects() {
               {/* Technical Outcome */}
               <div className="p-4 rounded-xl bg-surface-2 border border-white/[0.08]">
                 <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-wider mb-2">
-                  <LuCheckCircle2 className="w-4 h-4" />
+                  <LuCircleCheck className="w-4 h-4" />
                   <span>Technical Deliverable & Impact</span>
                 </div>
                 <p className="text-sm text-slate-200 leading-relaxed font-sans">

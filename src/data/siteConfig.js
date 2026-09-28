@@ -69,7 +69,7 @@ export const siteConfig = {
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/mohamed-eldeeb-78b83730b",
-      icon: "SiLinkedin",
+      icon: "LuLinkedin",
       handle: "mohamed-eldeeb",
     },
     {

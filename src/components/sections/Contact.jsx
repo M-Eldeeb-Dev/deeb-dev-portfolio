@@ -15,10 +15,11 @@ import {
   LuClock,
   LuMapPin,
   LuExternalLink,
-  LuAlertCircle,
-  LuCheckCircle2,
+  LuCircleAlert,
+  LuCircleCheck,
+  LuLinkedin,
 } from "react-icons/lu";
-import { SiGithub, SiLinkedin } from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 
 export default function Contact() {
   const [formValues, setFormValues] = useState({
@@ -271,7 +272,7 @@ export default function Contact() {
                       role="alert"
                       className="mt-1 text-xs text-rose-400 flex items-center gap-1"
                     >
-                      <LuAlertCircle className="w-3.5 h-3.5" />
+                      <LuCircleAlert className="w-3.5 h-3.5" />
                       <span>{formErrors.name}</span>
                     </p>
                   )}
@@ -311,7 +312,7 @@ export default function Contact() {
                       role="alert"
                       className="mt-1 text-xs text-rose-400 flex items-center gap-1"
                     >
-                      <LuAlertCircle className="w-3.5 h-3.5" />
+                      <LuCircleAlert className="w-3.5 h-3.5" />
                       <span>{formErrors.email}</span>
                     </p>
                   )}
@@ -350,7 +351,7 @@ export default function Contact() {
                       role="alert"
                       className="mt-1 text-xs text-rose-400 flex items-center gap-1"
                     >
-                      <LuAlertCircle className="w-3.5 h-3.5" />
+                      <LuCircleAlert className="w-3.5 h-3.5" />
                       <span>{formErrors.message}</span>
                     </p>
                   )}
@@ -360,7 +361,7 @@ export default function Contact() {
                 <div aria-live="polite" className="min-h-[1.5rem]">
                   {status === "success" && (
                     <div className="p-3 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-xs flex items-center gap-2">
-                      <LuCheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                      <LuCircleCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                       <span>
                         Message transmitted successfully! I will reply via email shortly.
                       </span>
@@ -370,7 +371,7 @@ export default function Contact() {
                   {status === "error" && (
                     <div className="p-3 rounded-xl bg-rose-950/60 border border-rose-500/40 text-rose-300 text-xs flex flex-col gap-2">
                       <div className="flex items-center gap-2">
-                        <LuAlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+                        <LuCircleAlert className="w-4 h-4 text-rose-400 shrink-0" />
                         <span>{errorMessage}</span>
                       </div>
                       <div className="flex items-center gap-3 pt-1">
@@ -504,7 +505,7 @@ export default function Contact() {
                 >
                   <div className="flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-cyan-950/60 text-cyan-400 shrink-0">
-                      <SiLinkedin className="w-4 h-4" />
+                      <LuLinkedin className="w-4 h-4" />
                     </div>
                     <div>
                       <div className="text-[10px] font-mono uppercase text-slate-400">
