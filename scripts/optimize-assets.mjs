@@ -18,7 +18,7 @@ function formatBytes(bytes) {
   return `${(bytes / 1024).toFixed(1)} KB`;
 }
 
-async function processImage({ inputPath, outputBase, width, height = null, fit = "inside" }) {
+async function processImage({ inputPath, outputBase, width, height = null, fit = "inside", generatePng = false }) {
   const statBefore = await fs.stat(inputPath);
   const inputFilename = path.basename(inputPath);
 
@@ -44,6 +44,18 @@ async function processImage({ inputPath, outputBase, width, height = null, fit =
   console.log(`   Original: ${formatBytes(statBefore.size)}`);
   console.log(`   WebP:     ${formatBytes(webpStat.size)} -> ${path.relative(rootDir, webpPath)}`);
   console.log(`   AVIF:     ${formatBytes(avifStat.size)} -> ${path.relative(rootDir, avifPath)}`);
+
+  // Generate PNG if requested
+  if (generatePng) {
+    const pngPath = `${outputBase}.png`;
+    let pngPipeline = sharp(inputPath);
+    if (width || height) {
+      pngPipeline = pngPipeline.resize(width, height, { fit, withoutEnlargement: true });
+    }
+    await pngPipeline.png({ compressionLevel: 9 }).toFile(pngPath);
+    const pngStat = await fs.stat(pngPath);
+    console.log(`   PNG:      ${formatBytes(pngStat.size)} -> ${path.relative(rootDir, pngPath)}`);
+  }
 }
 
 async function run() {
@@ -51,7 +63,13 @@ async function run() {
   await ensureDirs();
 
   // 1. Avatar (Square crop, max 600x600)
-  const avatarSrc = path.join(srcAssetsDir, "me.png");
+  let avatarSrc = path.join(srcAssetsDir, "me.webp");
+  try {
+    await fs.access(avatarSrc);
+  } catch {
+    avatarSrc = path.join(srcAssetsDir, "me.png");
+  }
+
   try {
     await fs.access(avatarSrc);
     await processImage({
@@ -60,6 +78,7 @@ async function run() {
       width: 600,
       height: 600,
       fit: "cover",
+      generatePng: true,
     });
   } catch (err) {
     console.warn(`[WARN] Avatar source not found at ${avatarSrc}: ${err.message}`);
