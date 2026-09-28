@@ -72,16 +72,34 @@ async function run() {
 
   try {
     await fs.access(avatarSrc);
-    await processImage({
-      inputPath: avatarSrc,
-      outputBase: path.join(destAssetsDir, "me"),
-      width: 600,
-      height: 600,
-      fit: "cover",
-      generatePng: true,
-    });
+    const meta = await sharp(avatarSrc).metadata();
+    
+    // Headshot Framing:
+    // Face is between y=30 and y=210, center x is ~314 (out of 648x765)
+    // Extract a 460x460 region focusing on the headshot and shoulders,
+    // and add 40px top padding so the circular border doesn't clip the hair
+    const cropWidth = Math.min(460, meta.width);
+    const cropHeight = Math.min(460, meta.height);
+    const cropLeft = Math.max(0, Math.min(meta.width - cropWidth, Math.round(meta.width / 2 - cropWidth / 2)));
+    const cropTop = 0;
+
+    const basePipeline = sharp(avatarSrc)
+      .extract({ left: cropLeft, top: cropTop, width: cropWidth, height: cropHeight })
+      .extend({ top: 40, bottom: 0, left: 0, right: 0, background: { r: 0, g: 0, b: 0, alpha: 0 } })
+      .resize(600, 600, { fit: "cover" });
+
+    const avatarBase = path.join(destAssetsDir, "me");
+
+    // WebP
+    await basePipeline.clone().webp({ quality: 85, effort: 6 }).toFile(`${avatarBase}.webp`);
+    // AVIF
+    await basePipeline.clone().avif({ quality: 70, effort: 6 }).toFile(`${avatarBase}.avif`);
+    // PNG
+    await basePipeline.clone().png({ compressionLevel: 9 }).toFile(`${avatarBase}.png`);
+
+    console.log("✓ Avatar successfully optimized with tailored headshot framing!");
   } catch (err) {
-    console.warn(`[WARN] Avatar source not found at ${avatarSrc}: ${err.message}`);
+    console.warn(`[WARN] Avatar source processing error at ${avatarSrc}: ${err.message}`);
   }
 
   // 2. Project Images (max width 1200, preserve aspect ratio)
