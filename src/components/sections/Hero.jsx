@@ -11,6 +11,7 @@ import Pill from "../common/Pill";
 import { HeroParticles } from "../common/Background";
 import avatarWebp from "../../assets/me.webp";
 import avatarAvif from "../../assets/me.avif";
+import avatarPng from "../../assets/me.png";
 import {
   LuArrowDownRight,
   LuFileText,
@@ -176,7 +177,7 @@ export default function Hero({ onOpenResume }) {
                 <source srcSet={avatarAvif} type="image/avif" />
                 <source srcSet={avatarWebp} type="image/webp" />
                 <img
-                  src={avatarWebp}
+                  src={avatarPng}
                   alt="Portrait photo of Mohamed Eldeeb"
                   width={600}
                   height={600}
