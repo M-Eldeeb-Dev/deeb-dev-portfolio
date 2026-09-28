@@ -1,26 +1,28 @@
 {
-  "name": "init-react-18-bun",
+  "name": "deeb-dev-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "lint": "eslint .",
+    "build": "vite build",
     "preview": "vite preview",
-    "build": "vite build && tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+    "lint": "eslint .",
+    "optimize:assets": "node scripts/optimize-assets.mjs",
+    "generate:social": "node scripts/generate-social-assets.mjs"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.13",
-    "axios": "^1.7.7",
-    "bootstrap": "^5.3.3",
-    "emailjs-com": "^3.2.0",
+    "@emailjs/browser": "^4.4.1",
+    "@fontsource-variable/inter": "^5.3.0",
+    "@fontsource-variable/space-grotesk": "^5.3.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.0.1",
+    "react-icons": "^5.7.0",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react-swc": "^3.5.0",
@@ -31,6 +33,7 @@
     "eslint-plugin-react-refresh": "^0.4.14",
     "globals": "^15.11.0",
     "postcss": "^8.5.6",
+    "sharp": "^0.35.5",
     "vite": "^6.3.6"
   }
 }

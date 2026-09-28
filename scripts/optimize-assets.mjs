@@ -1,0 +1,98 @@
+import sharp from "sharp";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(__dirname, "..");
+const srcAssetsDir = path.join(rootDir, "assets-src");
+const destAssetsDir = path.join(rootDir, "src", "assets");
+const destProjectsDir = path.join(destAssetsDir, "projects");
+
+async function ensureDirs() {
+  await fs.mkdir(destAssetsDir, { recursive: true });
+  await fs.mkdir(destProjectsDir, { recursive: true });
+}
+
+function formatBytes(bytes) {
+  return `${(bytes / 1024).toFixed(1)} KB`;
+}
+
+async function processImage({ inputPath, outputBase, width, height = null, fit = "inside" }) {
+  const statBefore = await fs.stat(inputPath);
+  const inputFilename = path.basename(inputPath);
+
+  // Generate WebP
+  const webpPath = `${outputBase}.webp`;
+  let webpPipeline = sharp(inputPath);
+  if (width || height) {
+    webpPipeline = webpPipeline.resize(width, height, { fit, withoutEnlargement: true });
+  }
+  await webpPipeline.webp({ quality: 80, effort: 6 }).toFile(webpPath);
+  const webpStat = await fs.stat(webpPath);
+
+  // Generate AVIF
+  const avifPath = `${outputBase}.avif`;
+  let avifPipeline = sharp(inputPath);
+  if (width || height) {
+    avifPipeline = avifPipeline.resize(width, height, { fit, withoutEnlargement: true });
+  }
+  await avifPipeline.avif({ quality: 65, effort: 6 }).toFile(avifPath);
+  const avifStat = await fs.stat(avifPath);
+
+  console.log(`✓ ${inputFilename}:`);
+  console.log(`   Original: ${formatBytes(statBefore.size)}`);
+  console.log(`   WebP:     ${formatBytes(webpStat.size)} -> ${path.relative(rootDir, webpPath)}`);
+  console.log(`   AVIF:     ${formatBytes(avifStat.size)} -> ${path.relative(rootDir, avifPath)}`);
+}
+
+async function run() {
+  console.log("== Starting Portfolio Asset Optimization ==");
+  await ensureDirs();
+
+  // 1. Avatar (Square crop, max 600x600)
+  const avatarSrc = path.join(srcAssetsDir, "me.png");
+  try {
+    await fs.access(avatarSrc);
+    await processImage({
+      inputPath: avatarSrc,
+      outputBase: path.join(destAssetsDir, "me"),
+      width: 600,
+      height: 600,
+      fit: "cover",
+    });
+  } catch (err) {
+    console.warn(`[WARN] Avatar source not found at ${avatarSrc}: ${err.message}`);
+  }
+
+  // 2. Project Images (max width 1200, preserve aspect ratio)
+  const projectFiles = [
+    { src: "Security-Website.webp", out: "security-website" },
+    { src: "Advanced-Dashbaord.webp", out: "advanced-dashboard" },
+    { src: "Modern-Porfolio.webp", out: "modern-portfolio" },
+    { src: "Auto-Parts.webp", out: "auto-parts" },
+    { src: "Weather-Dashboard.webp", out: "weather-dashboard" },
+    { src: "Elevvo.webp", out: "elevvo" },
+  ];
+
+  for (const { src, out } of projectFiles) {
+    const inputPath = path.join(srcAssetsDir, src);
+    try {
+      await fs.access(inputPath);
+      await processImage({
+        inputPath,
+        outputBase: path.join(destProjectsDir, out),
+        width: 1200,
+      });
+    } catch (err) {
+      console.warn(`[WARN] Project source not found at ${inputPath}: ${err.message}`);
+    }
+  }
+
+  console.log("== Asset Optimization Complete ==");
+}
+
+run().catch((err) => {
+  console.error("Optimization failed:", err);
+  process.exit(1);
+});

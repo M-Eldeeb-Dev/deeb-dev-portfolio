@@ -1,55 +1,85 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-    <title>Deeb's Portfolio</title>
-    <meta name="description" content="Futuristic full‑stack developer portfolio. Performance, accessibility, polished UX. React, Node.js, TypeScript, design systems, and scalable architectures." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="color-scheme" content="dark light" />
-    <link rel="manifest" href="/manifest.json">
+    <title>Mohamed Eldeeb — Full-Stack Software Engineer</title>
+    <meta
+      name="description"
+      content="Full-stack software engineer crafting high-performance, accessible web architectures with React, Node.js, Laravel, Python, and TypeScript."
+    />
+    <meta name="author" content="Mohamed Eldeeb" />
+    <meta name="theme-color" content="#080B11" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="canonical" href="https://deeb.is-a.dev/" />
 
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Deeb — Full‑Stack Web Developer Portfolio" />
-    <meta property="og:description" content="High‑performance web, mobile. Modern UI, UX, and accessibility." />
-    <meta property="og:url" content="https://deeb.is-a.dev/" />
-    <meta property="og:image" content="/logo.svg" />
-    <meta name="google-site-verification" content="6VURCZyuH56pVaq-7dBHV-ZUlpLL-VKH5doL1fqB44w" />
-    <!-- PWA basics -->
-    <link rel="manifest" href="/manifest.webmanifest" />
+    <!-- Favicon & PWA -->
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="apple-touch-icon" href="/logo.svg" />
-    <link rel="stylesheet" href="src/output.css">
-  
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/manifest.json" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
-    </noscript>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mohamed Eldeeb Portfolio" />
+    <meta property="og:title" content="Mohamed Eldeeb — Full-Stack Software Engineer" />
+    <meta
+      property="og:description"
+      content="Full-stack software engineer crafting high-performance, accessible web architectures with React, Node.js, Laravel, Python, and TypeScript."
+    />
+    <meta property="og:url" content="https://deeb.is-a.dev/" />
+    <meta property="og:image" content="https://deeb.is-a.dev/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mohamed Eldeeb — Full-Stack Software Engineer Portfolio" />
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mohamed Eldeeb — Full-Stack Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Full-stack software engineer crafting high-performance, accessible web architectures with React, Node.js, Laravel, Python, and TypeScript."
+    />
+    <meta name="twitter:image" content="https://deeb.is-a.dev/og-image.png" />
 
-    <!-- JSON-LD: Person -->
+    <!-- Verification -->
+    <meta name="google-site-verification" content="6VURCZyuH56pVaq-7dBHV-ZUlpLL-VKH5doL1fqB44w" />
+
+    <!-- JSON-LD: Structured Person Profile -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Mohamed Eldeeb",
+        "alternateName": "Deeb",
         "url": "https://deeb.is-a.dev",
-        "jobTitle": "Full-Stack Engineer",
+        "jobTitle": "Full-Stack Software Engineer",
+        "email": "mailto:mo6942853@gmail.com",
         "sameAs": [
-          "https://github.com/Mohamed-Eldeeb2008",
+          "https://github.com/M-Eldeeb-Dev",
           "https://www.linkedin.com/in/mohamed-eldeeb-78b83730b"
+        ],
+        "knowsAbout": [
+          "React",
+          "TypeScript",
+          "Node.js",
+          "Laravel",
+          "Python",
+          "Tailwind CSS",
+          "MySQL",
+          "PostgreSQL",
+          "Docker",
+          "REST APIs"
         ]
       }
     </script>
   </head>
-  <body>
+  <body class="bg-surface-0 text-slate-100 antialiased selection:bg-violet-600 selection:text-white">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-violet-700 focus:text-white focus:rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400"
+    >
+      Skip to main content
+    </a>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

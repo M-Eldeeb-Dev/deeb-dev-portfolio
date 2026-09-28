@@ -1,0 +1,219 @@
+@import "tailwindcss";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/inter";
+
+@theme {
+  --color-surface-0: #080b11;
+  --color-surface-1: #0d111a;
+  --color-surface-2: #131926;
+  --color-surface-3: #1a2233;
+  --color-surface-4: #242e45;
+
+  --color-violet-50: #f5f3ff;
+  --color-violet-100: #ede9fe;
+  --color-violet-200: #ddd6fe;
+  --color-violet-300: #c4b5fd;
+  --color-violet-400: #a78bfa;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+  --color-violet-700: #6d28d9;
+  --color-violet-800: #5b21b6;
+  --color-violet-900: #4c1d95;
+  --color-violet-950: #2e1065;
+
+  --color-cyan-50: #ecfeff;
+  --color-cyan-100: #cffafe;
+  --color-cyan-200: #a5f3fc;
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+  --color-cyan-700: #0e7490;
+  --color-cyan-800: #155e75;
+  --color-cyan-900: #164e63;
+  --color-cyan-950: #083344;
+
+  --font-display: "Space Grotesk Variable", sans-serif;
+  --font-sans: "Inter Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+}
+
+/* ==========================================================================
+   Base Layer & Resets
+   ========================================================================== */
+:root {
+  color-scheme: dark;
+  --header-height: 4.5rem;
+}
+
+html {
+  background-color: #080b11;
+  color: #f1f5f9;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 1.5rem);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #080b11;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080b11;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a2233;
+  border-radius: 9999px;
+  border: 2px solid #080b11;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7c3aed;
+}
+
+/* Focus Visible Accessibility */
+:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   Obsidian Cyberpunk Design System Utilities
+   ========================================================================== */
+
+/* 1px Gradient Border Utility */
+.glass-panel {
+  position: relative;
+  background: rgba(13, 17, 26, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+@supports (backdrop-filter: blur(12px)) {
+  .glass-panel-blur {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+@supports not (backdrop-filter: blur(12px)) {
+  .glass-panel-blur {
+    background: rgba(13, 17, 26, 0.95);
+  }
+}
+
+.gradient-border-card {
+  position: relative;
+  background-clip: padding-box;
+  border: 1px solid transparent;
+  background-image: 
+    linear-gradient(135deg, rgba(13, 17, 26, 0.92), rgba(8, 11, 17, 0.96)),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02));
+  background-origin: border-box;
+}
+
+.gradient-border-card:hover {
+  background-image: 
+    linear-gradient(135deg, rgba(19, 25, 38, 0.94), rgba(13, 17, 26, 0.98)),
+    linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(6, 182, 212, 0.35));
+}
+
+/* Static Inline SVG Noise Overlay (Zero network requests, no blend modes) */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Interactive Card Hover & Active Behavior */
+.interactive-card {
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .interactive-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px -6px rgba(0, 0, 0, 0.6),
+                0 0 24px -4px rgba(139, 92, 246, 0.15);
+  }
+}
+
+.interactive-card:active {
+  transform: scale(0.97);
+}
+
+/* Progressive Reveal helper (CSS-driven, zero animation library) */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Content Visibility for below-the-fold performance */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
+/* Slow Conic Gradient Animation for Avatar */
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: slow-spin 20s linear infinite;
+}
+
+/* Reduced Motion Overrides */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .animate-spin-slow,
+  .animate-pulse {
+    animation: none !important;
+  }
+
+  .interactive-card {
+    transition: none !important;
+  }
+
+  .interactive-card:hover,
+  .interactive-card:active {
+    transform: none !important;
+  }
+}
