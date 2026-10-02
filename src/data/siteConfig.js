@@ -40,7 +40,7 @@ export const siteConfig = {
   title: "Full-Stack Software Engineer",
   role: "Full-Stack Web Developer & Scalable Systems Enthusiast",
   bio: "I craft high-performance web applications with a focus on clean design, solid architecture, and scalability. Passionate about developer experience, accessible user interfaces, and robust server-side APIs.",
-  siteUrl: "https://deeb-dev-portfolio.vercel.app/",
+  siteUrl: "modeeb.me",
   email: "mo6942853@gmail.com",
   status: {
     label: "Open for Work",
