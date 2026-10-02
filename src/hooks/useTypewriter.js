@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Lightweight, zero-dependency typewriter phrase cycler hook.
@@ -22,14 +22,20 @@ export function useTypewriter(
   const [displayedText, setDisplayedText] = useState(phrases[0] || "");
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const phrasesRef = useRef(phrases);
 
   useEffect(() => {
-    if (reducedMotion || !phrases.length) {
-      setDisplayedText(phrases[0] || "");
+    phrasesRef.current = phrases;
+  }, [phrases]);
+
+  useEffect(() => {
+    if (reducedMotion || !phrasesRef.current.length) {
+      setDisplayedText(phrasesRef.current[0] || "");
       return;
     }
 
-    const currentPhrase = phrases[phraseIndex % phrases.length];
+    const currentList = phrasesRef.current;
+    const currentPhrase = currentList[phraseIndex % currentList.length];
 
     if (!isDeleting && displayedText === currentPhrase) {
       const pauseTimer = setTimeout(() => {
@@ -40,7 +46,7 @@ export function useTypewriter(
 
     if (isDeleting && displayedText === "") {
       setIsDeleting(false);
-      setPhraseIndex((prev) => (prev + 1) % phrases.length);
+      setPhraseIndex((prev) => (prev + 1) % currentList.length);
       return;
     }
 
@@ -59,7 +65,6 @@ export function useTypewriter(
     displayedText,
     isDeleting,
     phraseIndex,
-    phrases,
     typingSpeed,
     deletingSpeed,
     pauseDuration,

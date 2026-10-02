@@ -104,10 +104,6 @@ async function run() {
 
   // 2. Project Images (max width 1200, preserve aspect ratio)
   const projectFiles = [
-    { src: "Security-Website.webp", out: "security-website" },
-    { src: "Advanced-Dashbaord.webp", out: "advanced-dashboard" },
-    { src: "Modern-Porfolio.webp", out: "modern-portfolio" },
-    { src: "Auto-Parts.webp", out: "auto-parts" },
     { src: "Weather-Dashboard.webp", out: "weather-dashboard" },
     { src: "Elevvo.webp", out: "elevvo" },
   ];

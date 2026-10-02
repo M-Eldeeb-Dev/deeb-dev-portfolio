@@ -1,15 +1,11 @@
-import advancedDashboardWebp from "../assets/projects/advanced-dashboard.webp";
-import advancedDashboardAvif from "../assets/projects/advanced-dashboard.avif";
-import autoPartsWebp from "../assets/projects/auto-parts.webp";
-import autoPartsAvif from "../assets/projects/auto-parts.avif";
 import elevvoWebp from "../assets/projects/elevvo.webp";
 import elevvoAvif from "../assets/projects/elevvo.avif";
-import modernPortfolioWebp from "../assets/projects/modern-portfolio.webp";
-import modernPortfolioAvif from "../assets/projects/modern-portfolio.avif";
-import securityWebsiteWebp from "../assets/projects/security-website.webp";
-import securityWebsiteAvif from "../assets/projects/security-website.avif";
 import weatherDashboardWebp from "../assets/projects/weather-dashboard.webp";
 import weatherDashboardAvif from "../assets/projects/weather-dashboard.avif";
+import rabetWebp from "../assets/projects/rabet.webp";
+import rabetAvif from "../assets/projects/rabet.avif";
+import deepifyWebp from "../assets/projects/deepify.webp";
+import deepifyAvif from "../assets/projects/deepify.avif";
 
 /**
  * @typedef {Object} ProjectImage
@@ -42,110 +38,47 @@ import weatherDashboardAvif from "../assets/projects/weather-dashboard.avif";
 /** @type {Project[]} */
 export const projects = [
   {
-    id: "berimbolo-security",
-    title: "Berimbolo Security Website",
+    id: "rabet-platform",
+    title: "Rabet Platform",
     category: "Full-Stack",
-    kind: "Freelance",
-    summary:
-      "Responsive multi-section security services site with modern animations.",
-    outcome:
-      "Deployed production multi-section architecture with interactive customer inquiry flows.",
-    stack: ["React", "Tailwind CSS", "JavaScript", "Responsive Design"],
-    links: {
-      live: "https://M-Eldeeb-Dev.github.io/Berimbolo-Security-Website/",
-      repo: "https://github.com/M-Eldeeb-Dev/Berimbolo-Security-Website",
-    },
-    image: {
-      webp: securityWebsiteWebp,
-      avif: securityWebsiteAvif,
-      alt: "Berimbolo Security Website interface showcase",
-      width: 1200,
-      height: 534,
-    },
-  },
-  {
-    id: "advanced-admin-dashboard",
-    title: "Advanced Admin Dashboard",
-    category: "Frontend",
-    kind: "Personal",
-    summary: "Data-rich dashboard UI with charts, tables, and dark theme.",
-    outcome:
-      "Full data visualization interface with dynamic chart feeds, sortable data tables, and dark theme.",
-    stack: ["React", "JavaScript", "Charts", "Tailwind CSS"],
-    links: {
-      live: "https://M-Eldeeb-Dev.github.io/Advanced_DashBoard/",
-      repo: "https://github.com/M-Eldeeb-Dev/Advanced_DashBoard",
-    },
-    image: {
-      webp: advancedDashboardWebp,
-      avif: advancedDashboardAvif,
-      alt: "Advanced Admin Dashboard with charts and dark UI",
-      width: 1200,
-      height: 675,
-    },
-  },
-  {
-    id: "modern-personal-portfolio",
-    title: "Modern Personal Portfolio",
-    category: "Frontend",
     kind: "Personal",
     summary:
-      "Futuristic portfolio with smooth scroll, animations, and contact form.",
+      "A platform designed to bridge the gap between visionary Entrepreneurs and talented Co-Founders.",
     outcome:
-      "Single-page responsive showcase with custom canvas particle network and interactive forms.",
-    stack: ["React", "Tailwind CSS", "Canvas API", "Vite"],
+      "collaborative ecosystem where ideas meet execution, supported by Event Managers and overseen by Admins.",
+    stack: ["React", "JavaScript", "Tailwind CSS", "Supabase API"],
     links: {
-      live: "https://M-Eldeeb-Dev.github.io/Modern-Portfolio/",
-      repo: "https://github.com/M-Eldeeb-Dev/Modern-Portfolio",
+      live: "https://rabet-platform.vercel.app/",
+      repo: "https://github.com/M-Eldeeb-Dev/Rabet-Platform",
     },
     image: {
-      webp: modernPortfolioWebp,
-      avif: modernPortfolioAvif,
-      alt: "Modern Personal Portfolio showcase interface",
-      width: 1200,
-      height: 534,
+      webp: rabetWebp,
+      avif: rabetAvif,
+      alt: "Rabet Platform interface preview",
+      width: 800,
+      height: 786,
     },
   },
   {
-    id: "auto-parts-landing",
-    title: "Auto Parts Landing",
-    category: "Frontend",
-    kind: "Freelance",
-    summary: "Landing page for auto parts store with product highlights.",
-    outcome:
-      "Optimized commercial storefront landing with category browsing and call-to-actions.",
-    stack: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-    links: {
-      live: "https://M-Eldeeb-Dev.github.io/Auto-Parts-Project/",
-      repo: "https://github.com/M-Eldeeb-Dev/Auto-Parts-Project",
-    },
-    image: {
-      webp: autoPartsWebp,
-      avif: autoPartsAvif,
-      alt: "Auto Parts E-Commerce Landing page preview",
-      width: 1200,
-      height: 515,
-    },
-  },
-  {
-    id: "weather-app-dashboard",
-    title: "Weather App Dashboard",
-    category: "API / Systems",
+    id: "deepify-ecommerce",
+    title: "Deepify E-Commerce",
+    category: "Full-Stack",
     kind: "Personal",
-    summary: "Weather insights dashboard with cards and city search.",
+    summary:
+      "Modern, premium e-commerce platform with product catalogs, filtering, and responsive shopping cart.",
     outcome:
-      "Real-time OpenWeather API integration delivering multi-day forecasts and location search.",
-    stack: ["JavaScript", "REST APIs", "CSS3", "Async/Await"],
+      "Full-featured shopping storefront with dynamic catalog browsing, stateful cart management, and scalable component structure.",
+    stack: ["Laravel", "Tailwind CSS", "JavaScript", "ORM Database"],
     links: {
-      live: "https://M-Eldeeb-Dev.github.io/Weather-App-Dashboard/",
-      repo: "https://github.com/M-Eldeeb-Dev/Weather-App-Dashboard",
+      live: null,
+      repo: "https://github.com/M-Eldeeb-Dev/deepify-ecommerce",
     },
     image: {
-      webp: weatherDashboardWebp,
-      avif: weatherDashboardAvif,
-      alt: "Weather App Dashboard with weather cards and search",
-      width: 1200,
-      height: 536,
+      webp: deepifyWebp,
+      avif: deepifyAvif,
+      alt: "Deepify E-Commerce storefront preview",
+      width: 800,
+      height: 401,
     },
   },
   {
@@ -166,8 +99,29 @@ export const projects = [
       webp: elevvoWebp,
       avif: elevvoAvif,
       alt: "Elevvo Internship enterprise frontend showcase",
-      width: 1200,
-      height: 497,
+      width: 800,
+      height: 331,
+    },
+  },
+  {
+    id: "aerocast-platform",
+    title: "AeroCast Platform",
+    category: "API / Systems",
+    kind: "Personal",
+    summary: "Weather insights platform with cards and multi-day forecasts.",
+    outcome:
+      "Real-time OpenWeather API integration delivering multi-day forecasts and location search.",
+    stack: ["JavaScript", "REST APIs", "CSS3", "Async/Await"],
+    links: {
+      live: "https://aero-cast-eight.vercel.app/",
+      repo: "https://github.com/M-Eldeeb-Dev/AeroCast-Platform",
+    },
+    image: {
+      webp: weatherDashboardWebp,
+      avif: weatherDashboardAvif,
+      alt: "Weather App Dashboard with weather cards and search",
+      width: 800,
+      height: 357,
     },
   },
 ];
@@ -178,3 +132,4 @@ export const projectCategories = [
   "Frontend",
   "API / Systems",
 ];
+

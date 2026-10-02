@@ -1,22 +1,9 @@
 import Section from "../common/Section";
 import Reveal from "../common/Reveal";
 import GlassCard from "../common/GlassCard";
-import Pill from "../common/Pill";
 import { skillCategories } from "../../data/skills";
 
 export default function BentoSkills() {
-  const getLevelVariant = (level) => {
-    switch (level) {
-      case "Core":
-        return "cyan";
-      case "Proficient":
-        return "violet";
-      case "Familiar":
-      default:
-        return "default";
-    }
-  };
-
   return (
     <Section
       id="skills"
@@ -60,7 +47,6 @@ export default function BentoSkills() {
                     <div className="flex flex-wrap gap-2.5">
                       {category.items.map((skill) => {
                         const Icon = skill.icon;
-                        const levelVariant = getLevelVariant(skill.level);
 
                         return (
                           <div
@@ -75,13 +61,6 @@ export default function BentoSkills() {
                             <span className="text-xs font-sans font-medium text-slate-200">
                               {skill.name}
                             </span>
-                            <Pill
-                              variant={levelVariant}
-                              size="sm"
-                              className="text-[10px] py-0 px-2 uppercase font-mono"
-                            >
-                              {skill.level}
-                            </Pill>
                           </div>
                         );
                       })}

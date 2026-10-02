@@ -171,13 +171,13 @@ body {
   transform: translateY(0);
 }
 
-/* Content Visibility for below-the-fold performance */
+/* Content Visibility helper (safe fallback without breaking IntersectionObserver) */
 .content-visibility-auto {
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 700px;
+  /* Avoid layout skipping that breaks child IntersectionObservers */
+  contain: layout style;
 }
 
-/* Slow Conic Gradient Animation for Avatar */
+/* Keyframe Animations */
 @keyframes slow-spin {
   from {
     transform: rotate(0deg);
@@ -187,33 +187,38 @@ body {
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .animate-spin-slow {
   animation: slow-spin 20s linear infinite;
 }
 
-/* Reduced Motion Overrides */
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .reveal-item {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  .animate-spin-slow,
-  .animate-pulse {
-    animation: none !important;
-  }
-
-  .interactive-card {
-    transition: none !important;
-  }
-
-  .interactive-card:hover,
-  .interactive-card:active {
-    transform: none !important;
-  }
+.animate-fade-in-up {
+  animation: fadeInUp 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+
+/* Explicit Reduced Motion Overrides */
+[data-reduced-motion="true"] .reveal-item {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+[data-reduced-motion="true"] .animate-spin-slow,
+[data-reduced-motion="true"] .animate-fade-in-up {
+  animation: none !important;
+}
+
+[data-reduced-motion="true"] .interactive-card {
+  transition: none !important;
+}
+

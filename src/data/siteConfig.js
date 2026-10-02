@@ -40,15 +40,15 @@ export const siteConfig = {
   title: "Full-Stack Software Engineer",
   role: "Full-Stack Web Developer & Scalable Systems Enthusiast",
   bio: "I craft high-performance web applications with a focus on clean design, solid architecture, and scalability. Passionate about developer experience, accessible user interfaces, and robust server-side APIs.",
-  siteUrl: "https://deeb.is-a.dev",
+  siteUrl: "https://deeb-dev-portfolio.vercel.app/",
   email: "mo6942853@gmail.com",
   status: {
-    label: "Open for Work / Freelance",
+    label: "Open for Work",
     available: true,
   },
   resume: {
     localPath: "/resume/Mohamed-Eldeeb-(CV).pdf",
-    externalUrl: "https://drive.google.com/file/d/1K6fz8KAlzqIr-rbiL5t_QroU4qgqpUdE/view?usp=drive_link",
+    externalUrl: "https://drive.google.com/file/d/1ap-JjP6MZimvfcZOS7VDSzZho5iTqr0J/view?usp=drive_link",
     filename: "Mohamed-Eldeeb-Resume.pdf",
   },
   navItems: [
@@ -68,7 +68,7 @@ export const siteConfig = {
     },
     {
       name: "LinkedIn",
-      url: "https://www.linkedin.com/in/mohamed-eldeeb-78b83730b",
+      url: "https://www.linkedin.com/in/mh-deeb/",
       icon: "LuLinkedin",
       handle: "mohamed-eldeeb",
     },

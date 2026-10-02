@@ -21,34 +21,44 @@ export function HeroParticles() {
 
     let animationFrameId = null;
     let isVisible = true;
-    let width = 0;
-    let height = 0;
+    let width = container.clientWidth || window.innerWidth || 800;
+    let height = container.clientHeight || Math.max(window.innerHeight * 0.9, 600);
 
     const dpr = Math.min(typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1, 2);
 
+    const initParticles = (w, h) => {
+      const count = w < 768 ? 24 : 50;
+      return Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+        radius: Math.random() * 1.6 + 1.0,
+      }));
+    };
+
+    let particles = initParticles(width, height);
+
     const resize = () => {
-      width = container.clientWidth;
-      height = container.clientHeight;
+      const newWidth = container.clientWidth || window.innerWidth || 800;
+      const newHeight = container.clientHeight || Math.max(window.innerHeight * 0.9, 600);
+
+      if (width === 0 || height === 0 || Math.abs(newWidth - width) > 100 || Math.abs(newHeight - height) > 100) {
+        particles = initParticles(newWidth, newHeight);
+      }
+
+      width = newWidth;
+      height = newHeight;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
-      ctx.scale(dpr, dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
     resize();
 
-    // Scale particle count to screen size: ~20 on mobile, ~45 on desktop
-    const particleCount = width < 768 ? 20 : 45;
-    const maxDistance = width < 768 ? 90 : 130;
-
-    const particles = Array.from({ length: particleCount }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.45,
-      vy: (Math.random() - 0.5) * 0.45,
-      radius: Math.random() * 1.4 + 0.8,
-    }));
+    const maxDistance = width < 768 ? 100 : 140;
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
@@ -61,9 +71,9 @@ export function HeroParticles() {
           const dist = Math.hypot(dx, dy);
 
           if (dist < maxDistance) {
-            const alpha = (1 - dist / maxDistance) * 0.22;
+            const alpha = (1 - dist / maxDistance) * 0.35;
             ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
-            ctx.lineWidth = 0.75;
+            ctx.lineWidth = 0.85;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -76,15 +86,30 @@ export function HeroParticles() {
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(34, 211, 238, 0.65)";
+        ctx.fillStyle = "rgba(34, 211, 238, 0.75)";
+        ctx.shadowBlur = 4;
+        ctx.shadowColor = "rgba(34, 211, 238, 0.4)";
         ctx.fill();
 
         if (!reducedMotion) {
           p.x += p.vx;
           p.y += p.vy;
 
-          if (p.x < 0 || p.x > width) p.vx *= -1;
-          if (p.y < 0 || p.y > height) p.vy *= -1;
+          if (p.x < 0) {
+            p.x = 0;
+            p.vx *= -1;
+          } else if (p.x > width) {
+            p.x = width;
+            p.vx *= -1;
+          }
+
+          if (p.y < 0) {
+            p.y = 0;
+            p.vy *= -1;
+          } else if (p.y > height) {
+            p.y = height;
+            p.vy *= -1;
+          }
         }
       }
 
@@ -93,7 +118,7 @@ export function HeroParticles() {
       }
     };
 
-    // Draw single frame if reduced motion
+    // Draw frame
     if (reducedMotion) {
       draw();
       return;
@@ -110,7 +135,7 @@ export function HeroParticles() {
           animationFrameId = null;
         }
       },
-      { threshold: 0.05 }
+      { threshold: 0.01 }
     );
 
     observer.observe(container);

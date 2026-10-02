@@ -8,29 +8,42 @@
       name="description"
       content="Full-stack software engineer crafting high-performance, accessible web architectures with React, Node.js, Laravel, Python, and TypeScript."
     />
+    <meta
+      name="keywords"
+      content="Mohamed Eldeeb, Deeb, Full-Stack Software Engineer, React Developer, Laravel Developer, Node.js, TypeScript, Frontend Engineer, Web Developer Portfolio, Cairo Egypt"
+    />
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="author" content="Mohamed Eldeeb" />
-    <meta name="theme-color" content="#080B11" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#080b11" />
     <meta name="color-scheme" content="dark" />
-    <link rel="canonical" href="https://deeb.is-a.dev/" />
+    <link rel="canonical" href="https://deeb-dev-portfolio.vercel.app/" />
 
     <!-- Favicon & PWA -->
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <link rel="apple-touch-icon" href="/logo.svg" />
     <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Deeb Portfolio" />
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Mohamed Eldeeb Portfolio" />
     <meta property="og:title" content="Mohamed Eldeeb — Full-Stack Software Engineer" />
     <meta
       property="og:description"
       content="Full-stack software engineer crafting high-performance, accessible web architectures with React, Node.js, Laravel, Python, and TypeScript."
     />
-    <meta property="og:url" content="https://deeb.is-a.dev/" />
-    <meta property="og:image" content="https://deeb.is-a.dev/og-image.png" />
+    <meta property="og:url" content="https://deeb-dev-portfolio.vercel.app/" />
+    <meta property="og:image" content="https://deeb-dev-portfolio.vercel.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mohamed Eldeeb — Full-Stack Software Engineer Portfolio" />
+    <meta property="profile:first_name" content="Mohamed" />
+    <meta property="profile:last_name" content="Eldeeb" />
+    <meta property="profile:username" content="M-Eldeeb-Dev" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -39,36 +52,63 @@
       name="twitter:description"
       content="Full-stack software engineer crafting high-performance, accessible web architectures with React, Node.js, Laravel, Python, and TypeScript."
     />
-    <meta name="twitter:image" content="https://deeb.is-a.dev/og-image.png" />
+    <meta name="twitter:image" content="https://deeb-dev-portfolio.vercel.app/og-image.png" />
+    <meta name="twitter:creator" content="@M_Eldeeb_Dev" />
 
     <!-- Verification -->
     <meta name="google-site-verification" content="6VURCZyuH56pVaq-7dBHV-ZUlpLL-VKH5doL1fqB44w" />
 
-    <!-- JSON-LD: Structured Person Profile -->
+    <!-- JSON-LD: Structured Schema Graph (ProfilePage, Person, WebSite) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Mohamed Eldeeb",
-        "alternateName": "Deeb",
-        "url": "https://deeb.is-a.dev",
-        "jobTitle": "Full-Stack Software Engineer",
-        "email": "mailto:mo6942853@gmail.com",
-        "sameAs": [
-          "https://github.com/M-Eldeeb-Dev",
-          "https://www.linkedin.com/in/mohamed-eldeeb-78b83730b"
-        ],
-        "knowsAbout": [
-          "React",
-          "TypeScript",
-          "Node.js",
-          "Laravel",
-          "Python",
-          "Tailwind CSS",
-          "MySQL",
-          "PostgreSQL",
-          "Docker",
-          "REST APIs"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://deeb-dev-portfolio.vercel.app/#website",
+            "url": "https://deeb-dev-portfolio.vercel.app/",
+            "name": "Mohamed Eldeeb Portfolio",
+            "description": "Full-stack software engineer portfolio showcasing projects, technical skills, and experience.",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://deeb-dev-portfolio.vercel.app/#webpage",
+            "url": "https://deeb-dev-portfolio.vercel.app/",
+            "name": "Mohamed Eldeeb — Full-Stack Software Engineer",
+            "isPartOf": { "@id": "https://deeb-dev-portfolio.vercel.app/#website" },
+            "mainEntity": { "@id": "https://deeb-dev-portfolio.vercel.app/#person" }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://deeb-dev-portfolio.vercel.app/#person",
+            "name": "Mohamed Eldeeb",
+            "alternateName": "Deeb",
+            "url": "https://deeb-dev-portfolio.vercel.app/",
+            "image": "https://deeb-dev-portfolio.vercel.app/og-image.png",
+            "jobTitle": "Full-Stack Software Engineer",
+            "email": "mailto:mo6942853@gmail.com",
+            "sameAs": [
+              "https://github.com/M-Eldeeb-Dev",
+              "https://www.linkedin.com/in/mh-deeb/"
+            ],
+            "knowsAbout": [
+              "React",
+              "TypeScript",
+              "JavaScript",
+              "Node.js",
+              "Laravel",
+              "PHP",
+              "Python",
+              "Tailwind CSS",
+              "MySQL",
+              "PostgreSQL",
+              "Docker",
+              "REST APIs",
+              "Vite",
+              "Full-Stack Web Development"
+            ]
+          }
         ]
       }
     </script>

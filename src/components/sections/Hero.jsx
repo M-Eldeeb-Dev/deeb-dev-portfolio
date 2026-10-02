@@ -35,7 +35,7 @@ export default function Hero({ onOpenResume }) {
 
   const cycledPhrase = useTypewriter(typewriterPhrases, {
     typingSpeed: 70,
-    deletingSpeed: 35,
+    deletingSpeed: 30,
     pauseDuration: 2200,
     reducedMotion,
   });
@@ -71,9 +71,6 @@ export default function Hero({ onOpenResume }) {
         >
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Pill variant="cyan" size="sm" dot>
-                PORTFOLIO 2026
-              </Pill>
               <Pill variant="success" size="sm" dot dotPulse className="sm:inline-flex">
                 {siteConfig.status.label}
               </Pill>
@@ -99,7 +96,7 @@ export default function Hero({ onOpenResume }) {
             {/* Bio with personality */}
             <p className="mt-5 text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl font-sans">
               I craft high-performance web applications with a focus on clean design,
-              solid architecture, and scalability — and yes, I do have a soft spot for potatoes 🥔.
+              solid architecture, and scalability and also i do have a soft spot for potatoes 🥔.
             </p>
           </div>
 
@@ -161,9 +158,8 @@ export default function Hero({ onOpenResume }) {
           <div className="relative mb-5">
             {/* Slow Conic Gradient Ambient Ring */}
             <div
-              className={`absolute -inset-2 rounded-full opacity-70 blur-md ${
-                reducedMotion ? "" : "animate-spin-slow"
-              }`}
+              className={`absolute -inset-2 rounded-full opacity-70 blur-md ${reducedMotion ? "" : "animate-spin-slow"
+                }`}
               style={{
                 background:
                   "conic-gradient(from 0deg, #8b5cf6, #06b6d4, #7c3aed, #8b5cf6)",
@@ -179,9 +175,9 @@ export default function Hero({ onOpenResume }) {
                 <img
                   src={avatarPng}
                   alt="Portrait photo of Mohamed Eldeeb"
-                  width={600}
-                  height={600}
-                  fetchPriority="high"
+                  width={360}
+                  height={360}
+                  {...{ fetchpriority: "high" }}
                   loading="eager"
                   decoding="async"
                   className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"

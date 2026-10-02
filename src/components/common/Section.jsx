@@ -11,7 +11,6 @@ const Section = forwardRef(function Section(
     description,
     children,
     className = "",
-    contentVisibility = true,
   },
   ref
 ) {
@@ -19,9 +18,7 @@ const Section = forwardRef(function Section(
     <section
       ref={ref}
       id={id}
-      className={`scroll-mt-24 py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${
-        contentVisibility ? "content-visibility-auto" : ""
-      } ${className}`}
+      className={`scroll-mt-24 py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ${className}`}
     >
       {(title || eyebrow || description) && (
         <div className="mb-10 sm:mb-14">

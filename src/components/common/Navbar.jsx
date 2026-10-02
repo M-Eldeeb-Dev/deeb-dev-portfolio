@@ -5,11 +5,12 @@ import { usePlatformModifier } from "../../hooks/useHotkey";
 import Pill from "./Pill";
 import { LuMenu, LuX, LuCommand } from "react-icons/lu";
 
+const NAV_IDS = siteConfig.navItems.map((item) => item.id);
+
 export default function Navbar({ onOpenCommandMenu }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const mobileDialogRef = useRef(null);
-  const navIds = siteConfig.navItems.map((item) => item.id);
-  const activeSection = useScrollSpy(navIds);
+  const activeSection = useScrollSpy(NAV_IDS);
   const { modifier } = usePlatformModifier();
 
   // Control native dialog for mobile drawer
@@ -47,8 +48,8 @@ export default function Navbar({ onOpenCommandMenu }) {
               href="#hero"
               className="flex items-center gap-2 text-white font-display font-bold tracking-tight text-lg hover:text-cyan-400 transition-colors"
             >
-              <span className="h-8 w-8 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center text-white text-sm font-mono shadow-sm">
-                D
+              <span className="h-8 w-8 flex items-center justify-center text-white text-sm font-mono shadow-sm overflow-hidden">
+                <img src="/logo.svg" alt="Mohamed Eldeeb Logo" width={32} height={32} className="w-8 h-8 object-contain" />
               </span>
               <span>{siteConfig.shortName}</span>
             </a>

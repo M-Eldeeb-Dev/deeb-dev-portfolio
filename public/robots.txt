@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://deeb.is-a.dev/sitemap.xml
+Sitemap: https://deeb-dev-portfolio.vercel.app/sitemap.xml

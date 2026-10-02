@@ -498,7 +498,7 @@ export default function Contact() {
 
                 {/* LinkedIn Item */}
                 <a
-                  href="https://www.linkedin.com/in/mohamed-eldeeb-78b83730b"
+                  href="https://www.linkedin.com/in/mh-deeb"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3.5 rounded-xl bg-surface-2 border border-white/[0.08] hover:border-cyan-500/40 flex items-center justify-between transition-colors group"
@@ -512,7 +512,7 @@ export default function Contact() {
                         LinkedIn Network
                       </div>
                       <div className="text-xs sm:text-sm text-slate-200 font-mono">
-                        in/mohamed-eldeeb
+                        in/mh-deeb
                       </div>
                     </div>
                   </div>

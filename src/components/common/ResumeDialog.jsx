@@ -65,10 +65,10 @@ export default function ResumeDialog({ isOpen, onClose }) {
               <LuFileText className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-display font-bold text-lg text-white">
-                {siteConfig.name} — Curriculum Vitae
+              <h3 className="font-display font-bold text-sm sm:text-base md:text-lg lg:text-xl text-white">
+                {siteConfig.name} (CV)
               </h3>
-              <p className="text-xs font-mono text-slate-400">
+              <p className="text-[11px] sm:text-xs font-mono text-slate-400">
                 Full-Stack Software Engineer
               </p>
             </div>

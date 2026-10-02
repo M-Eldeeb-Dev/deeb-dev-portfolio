@@ -1,12 +1,14 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, lazy, Suspense } from "react";
 
 // Common Components
 import { ToastProvider } from "./components/common/Toast";
 import Background from "./components/common/Background";
 import Navbar from "./components/common/Navbar";
-import CommandMenu from "./components/common/CommandMenu";
-import ResumeDialog from "./components/common/ResumeDialog";
 import Footer from "./components/common/Footer";
+
+// Lazy-loaded Modal Overlays (deferred from critical rendering path)
+const CommandMenu = lazy(() => import("./components/common/CommandMenu"));
+const ResumeDialog = lazy(() => import("./components/common/ResumeDialog"));
 
 // Section Components
 import Hero from "./components/sections/Hero";
@@ -64,13 +66,22 @@ export default function App() {
         {/* Footer */}
         <Footer />
 
-        {/* Modals & Overlays */}
-        <CommandMenu
-          isOpen={commandMenuOpen}
-          onClose={closeCommandMenu}
-          onOpenResume={openResume}
-        />
-        <ResumeDialog isOpen={resumeDialogOpen} onClose={closeResume} />
+        {/* Modals & Overlays (Loaded on demand) */}
+        {commandMenuOpen && (
+          <Suspense fallback={null}>
+            <CommandMenu
+              isOpen={commandMenuOpen}
+              onClose={closeCommandMenu}
+              onOpenResume={openResume}
+            />
+          </Suspense>
+        )}
+
+        {resumeDialogOpen && (
+          <Suspense fallback={null}>
+            <ResumeDialog isOpen={resumeDialogOpen} onClose={closeResume} />
+          </Suspense>
+        )}
       </div>
     </ToastProvider>
   );
