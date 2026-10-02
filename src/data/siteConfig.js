@@ -48,7 +48,7 @@ export const siteConfig = {
   },
   resume: {
     localPath: "/resume/Mohamed-Eldeeb-(CV).pdf",
-    externalUrl: "https://drive.google.com/file/d/1ap-JjP6MZimvfcZOS7VDSzZho5iTqr0J/view?usp=drive_link",
+    externalUrl: "https://drive.google.com/file/d/1vN5gTgHfJ9Og3A6KwHt4fWKfvMxe6nUg/view?usp=drive_link",
     filename: "Mohamed-Eldeeb-Resume.pdf",
   },
   navItems: [
