@@ -1,0 +1,77 @@
+[33mcommit b55c90b3202c2d8ddee2270ed2e69566ad78fb0a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Fri Oct 2 20:21:54 2026 +0300
+
+    resume file updated
+
+[33mcommit ca61eba712848ab0b7ebb346cbaf5b71bceb7dfe[m
+Author: Mohamed Eldeeb <162509584+M-Eldeeb-Dev@users.noreply.github.com>
+Date:   Fri Oct 2 20:13:46 2026 +0300
+
+    Update site URL in siteConfig.js
+
+[33mcommit 1b51b213d6581f3f0f4956351f42fab4c64e810c[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Fri Oct 2 19:42:20 2026 +0300
+
+    Remove AI Changes
+
+[33mcommit b8957924a4a1eaa3f14b4ac2b0a451cae9e0c32a[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Sep 28 23:48:14 2026 +0300
+
+    update-avatar
+
+[33mcommit 726bb26885e469eccb78d43f0b9e684bfcd7b602[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Sep 28 23:34:09 2026 +0300
+
+    feat(assets): update profile image to me.webp source and regenerate optimized web assets
+
+[33mcommit daeba3d38fb300153a143f2655a76c5a43971344[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Sep 28 23:28:37 2026 +0300
+
+    feat(assets): integrate updated profile photo me.png with AVIF, WebP, and PNG fallback
+
+[33mcommit 790c416f0e3e1ba4e5507629978f3e1b5688b276[m[33m ([m[1;32mredesign/obsidian[m[33m)[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Sep 28 23:17:07 2026 +0300
+
+    chore(audit): phase 5 - clean up unused vars, resolve audit advisories, pass 0-warning lint
+
+[33mcommit b6c1f81301c8757b0ff22d300fc1733bdb4a8cb9[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Sep 28 23:03:12 2026 +0300
+
+    feat(assembly): phase 4 - modular App.jsx integration and icon compatibility
+
+[33mcommit 94c43d4d54e9b34d3d1244674f7eab75c6bc9930[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Sep 28 22:41:45 2026 +0300
+
+    feat(sections): phase 3 - data layer and modern section components
+
+[33mcommit d7b9a58c0072dfb6cc4e086b0c56b34e965856c4[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Sep 28 22:33:05 2026 +0300
+
+    feat(systems): phase 2 - hooks and common component primitives
+
+[33mcommit a6f0458d2c95143752bf1678c25a61886692ad87[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Sep 28 22:27:30 2026 +0300
+
+    feat(foundations): phase 1 - tokens, tooling, asset pipeline, and config
+
+[33mcommit ed5397960e57844c25cf2a13366d7be445c0fc6b[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Dec 29 13:57:46 2025 +0200
+
+    Package.json Features Updated
+
+[33mcommit d425fa7d3f33ddb30ff90dd9085cd01f34ab0bf1[m
+Author: Mohamed Eldeeb <mo6942853@gmail.com>
+Date:   Mon Dec 29 13:21:23 2025 +0200
+
+    Portfolio files Uploaded
